@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rokym Diligence Enterprise | Multi-Sector Professional Services</title>
+  <meta name="description" content="Rokym Diligence Enterprise delivers trusted, multi-sector professional services across Kenya — consulting, logistics, facility management, manpower, project management, and compliance." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0A1628;
+      --navy-mid: #122040;
+      --navy-light: #1C3260;
+      --gold: #C9A84C;
+      --gold-light: #E8C97A;
+      --gold-pale: #F5E8C0;
+      --cream: #FAF7F0;
+      --text-muted: #7A8FA8;
+      --text-dim: #9AADC4;
+      --white: #FFFFFF;
+      --border-gold: rgba(201,168,76,0.22);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--navy);
+      font-family: 'DM Sans', sans-serif;
+      color: var(--white);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 4rem;
+      background: rgba(10,22,40,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 0.5px solid var(--border-gold);
+      transition: padding 0.3s;
+    }
+    nav.scrolled { padding: 0.75rem 4rem; }
+
+    .logo { display: flex; flex-direction: column; line-height: 1; text-decoration: none; }
+    .logo-main { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 700; letter-spacing: 0.08em; color: var(--gold); }
+    .logo-sub { font-size: 0.55rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-muted); margin-top: 3px; }
+
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { font-size: 0.73rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-cta {
+      font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.55rem 1.5rem; border: 1px solid var(--gold);
+      color: var(--gold); background: transparent; cursor: pointer;
+      font-family: 'DM Sans', sans-serif; transition: all 0.2s; text-decoration: none;
+      display: inline-block;
+    }
+    .nav-cta:hover { background: var(--gold); color: var(--navy); }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { width: 22px; height: 1.5px; background: var(--gold); display: block; transition: all 0.3s; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
+      padding: 8rem 4rem 5rem;
+      position: relative; overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse 60% 60% at 80% 50%, rgba(201,168,76,0.05) 0%, transparent 70%),
+                  linear-gradient(160deg, #0A1628 0%, #122040 55%, #0C1A30 100%);
+    }
+    .hero-grid-lines {
+      position: absolute; inset: 0; pointer-events: none;
+      opacity: 0.055;
+    }
+
+    .hero-content { position: relative; z-index: 2; max-width: 900px; }
+    .eyebrow {
+      font-size: 0.65rem; letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--gold); display: flex; align-items: center; gap: 14px; margin-bottom: 1.8rem;
+    }
+    .eyebrow::before { content: ''; width: 36px; height: 1px; background: var(--gold); display: block; }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 5.5vw, 5.5rem);
+      font-weight: 600; line-height: 1.06; color: var(--white); margin-bottom: 1.6rem;
+    }
+    h1 em { color: var(--gold); font-style: normal; }
+
+    .hero-desc {
+      font-size: 1rem; line-height: 1.85; color: var(--text-muted);
+      max-width: 520px; margin-bottom: 3rem; font-weight: 300;
+    }
+
+    .hero-actions { display: flex; gap: 1.2rem; align-items: center; flex-wrap: wrap; }
+    .btn-primary {
+      font-size: 0.73rem; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.9rem 2.2rem; background: var(--gold); color: var(--navy);
+      border: none; cursor: pointer; font-family: 'DM Sans', sans-serif;
+      font-weight: 500; transition: all 0.2s; text-decoration: none; display: inline-block;
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn-outline {
+      font-size: 0.73rem; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.9rem 2.2rem; border: 1px solid rgba(201,168,76,0.4);
+      color: var(--text-dim); background: transparent; cursor: pointer;
+      font-family: 'DM Sans', sans-serif; transition: all 0.2s; text-decoration: none; display: inline-block;
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    .hero-stats {
+      display: flex; gap: 0; margin-top: 5rem;
+      border-top: 0.5px solid var(--border-gold);
+      padding-top: 2.5rem; flex-wrap: wrap;
+    }
+    .stat {
+      padding-right: 3rem; margin-right: 3rem;
+      border-right: 0.5px solid var(--border-gold);
+    }
+    .stat:last-child { border-right: none; padding-right: 0; margin-right: 0; }
+    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 600; color: var(--gold); line-height: 1; }
+    .stat-label { font-size: 0.67rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-top: 5px; }
+
+    .gold-bar { height: 2px; background: linear-gradient(90deg, var(--gold) 0%, rgba(201,168,76,0.1) 70%, transparent 100%); }
+
+    /* ── SECTIONS SHARED ── */
+    section { padding: 6rem 4rem; }
+    .section-eyebrow { font-size: 0.63rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 600; line-height: 1.1; color: var(--white); }
+    .section-title em { color: var(--gold); font-style: normal; }
+
+    /* ── SERVICES ── */
+    .services-section { background: var(--navy-mid); }
+    .services-header { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 3.5rem; }
+
+    .services-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 0.5px solid var(--border-gold);
+    }
+    .service-card {
+      padding: 2.2rem 2rem; border-right: 0.5px solid var(--border-gold);
+      border-bottom: 0.5px solid var(--border-gold);
+      transition: background 0.3s; cursor: default; position: relative; overflow: hidden;
+    }
+    .service-card:nth-child(3n) { border-right: none; }
+    .service-card:nth-child(4), .service-card:nth-child(5), .service-card:nth-child(6) { border-bottom: none; }
+    .service-card::before {
+      content: ''; position: absolute; top: 0; left: 0;
+      width: 0; height: 2px; background: var(--gold);
+      transition: width 0.35s;
+    }
+    .service-card:hover::before { width: 100%; }
+    .service-card:hover { background: rgba(28,50,96,0.6); }
+
+    .service-icon { font-size: 1.5rem; color: var(--gold); margin-bottom: 1.2rem; display: block; }
+    .service-name { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; color: var(--white); margin-bottom: 0.7rem; }
+    .service-desc { font-size: 0.82rem; line-height: 1.75; color: var(--text-muted); font-weight: 300; }
+
+    /* ── ABOUT ── */
+    .about-section {
+      background: var(--navy);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+    }
+    .about-text p { font-size: 0.9rem; line-height: 1.95; color: var(--text-muted); font-weight: 300; margin-top: 1.5rem; max-width: 440px; }
+
+    .value-list { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1.2rem; }
+    .value-item { display: flex; gap: 1rem; align-items: flex-start; }
+    .value-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); margin-top: 8px; flex-shrink: 0; }
+    .value-text strong { display: block; font-size: 0.9rem; font-weight: 500; color: var(--white); margin-bottom: 2px; }
+    .value-text span { font-size: 0.8rem; color: var(--text-muted); font-weight: 300; line-height: 1.6; }
+
+    .about-panel { background: var(--navy-mid); border: 0.5px solid var(--border-gold); padding: 2.5rem; }
+    .about-panel-title { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: var(--gold); margin-bottom: 1.2rem; letter-spacing: 0.04em; }
+    .about-panel p { font-size: 0.82rem; line-height: 1.8; color: var(--text-muted); font-weight: 300; }
+    .metrics-list { margin-top: 2rem; display: flex; flex-direction: column; gap: 0; }
+    .metric-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 0; border-bottom: 0.5px solid var(--border-gold);
+    }
+    .metric-row:last-child { border-bottom: none; }
+    .metric-label { font-size: 0.78rem; color: var(--text-muted); }
+    .metric-val { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--gold); }
+
+    /* ── WHY US ── */
+    .why-section { background: var(--navy-mid); }
+    .why-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2.5rem; margin-top: 3.5rem; }
+    .why-card { border-left: 2px solid var(--gold); padding-left: 1.5rem; }
+    .why-num { font-size: 0.75rem; color: var(--gold); margin-bottom: 0.7rem; letter-spacing: 0.1em; }
+    .why-title { font-size: 1rem; font-weight: 500; color: var(--white); margin-bottom: 0.6rem; }
+    .why-desc { font-size: 0.78rem; line-height: 1.75; color: var(--text-muted); font-weight: 300; }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-section { background: var(--navy); }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3.5rem; }
+    .testimonial-card { background: var(--navy-mid); border: 0.5px solid var(--border-gold); padding: 2rem; position: relative; }
+    .testimonial-card::before { content: '\201C'; font-family: 'Cormorant Garamond', serif; font-size: 5rem; color: var(--gold); opacity: 0.15; position: absolute; top: 0.5rem; left: 1.2rem; line-height: 1; pointer-events: none; }
+    .testimonial-text { font-size: 0.85rem; line-height: 1.85; color: var(--text-muted); font-weight: 300; font-style: italic; margin-bottom: 1.5rem; padding-top: 1rem; }
+    .testimonial-author { display: flex; align-items: center; gap: 12px; }
+    .author-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--navy-light); border: 1px solid var(--border-gold); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 500; color: var(--gold); flex-shrink: 0; }
+    .author-name { font-size: 0.88rem; font-weight: 500; color: var(--white); }
+    .author-role { font-size: 0.72rem; color: var(--text-muted); }
+
+    /* ── CONTACT ── */
+    .contact-section { background: var(--navy-mid); }
+    .contact-inner { display: grid; grid-template-columns: 1fr 1.3fr; gap: 6rem; align-items: start; }
+
+    .contact-info-list { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 2rem; }
+    .contact-item { display: flex; gap: 1.2rem; align-items: flex-start; }
+    .contact-icon { font-size: 1.1rem; color: var(--gold); margin-top: 2px; flex-shrink: 0; }
+    .contact-detail-label { font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
+    .contact-detail-val { font-size: 0.9rem; color: var(--white); line-height: 1.5; }
+
+    .contact-form { display: flex; flex-direction: column; gap: 1.1rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-label { font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); }
+    .form-input, .form-select, .form-textarea {
+      background: var(--navy); border: 0.5px solid rgba(201,168,76,0.28);
+      color: var(--white); padding: 0.75rem 1rem; font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem; outline: none; transition: border-color 0.2s; width: 100%;
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: var(--text-muted); opacity: 0.6; }
+    .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--gold); }
+    .form-select { appearance: none; cursor: pointer; }
+    .form-select option { background: var(--navy-mid); }
+    .form-textarea { resize: vertical; min-height: 110px; }
+
+    .form-submit {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 0.9rem 2.2rem; background: var(--gold); color: var(--navy);
+      border: none; cursor: pointer; font-family: 'DM Sans', sans-serif;
+      font-weight: 500; transition: all 0.2s; align-self: flex-start; margin-top: 0.4rem;
+    }
+    .form-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .form-success { display: none; color: #6fcf97; font-size: 0.85rem; margin-top: 0.5rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy); border-top: 0.5px solid var(--border-gold);
+      padding: 3rem 4rem 2rem;
+    }
+    .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 2.5rem; border-bottom: 0.5px solid var(--border-gold); }
+    .footer-brand .logo-main { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 700; letter-spacing: 0.08em; color: var(--gold); display: block; }
+    .footer-brand .logo-sub { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); margin-top: 4px; display: block; }
+    .footer-brand p { font-size: 0.78rem; line-height: 1.75; color: var(--text-muted); font-weight: 300; margin-top: 1rem; }
+    .footer-col h4 { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+    .footer-col ul li a { font-size: 0.78rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--white); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 1.8rem; flex-wrap: wrap; gap: 1rem; }
+    .footer-copy { font-size: 0.7rem; color: var(--text-muted); }
+    .footer-socials { display: flex; gap: 1.2rem; }
+    .footer-socials a { font-size: 1rem; color: var(--text-muted); transition: color 0.2s; text-decoration: none; }
+    .footer-socials a:hover { color: var(--gold); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      nav.scrolled { padding: 0.7rem 1.5rem; }
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(10,22,40,0.98); border-bottom: 0.5px solid var(--border-gold); padding: 1.5rem 2rem; gap: 1.5rem; }
+      .nav-links.open { display: flex; }
+      .nav-cta { display: none; }
+      .hamburger { display: flex; }
+
+      section { padding: 4rem 1.5rem; }
+      .hero { padding: 7rem 1.5rem 4rem; }
+      .hero-stats { gap: 0; }
+      .stat { padding-right: 1.5rem; margin-right: 1.5rem; }
+
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .service-card:nth-child(2n) { border-right: none; }
+      .service-card:nth-child(3n) { border-right: 0.5px solid var(--border-gold); }
+      .service-card:nth-child(5), .service-card:nth-child(6) { border-bottom: none; }
+      .service-card:nth-child(4) { border-bottom: 0.5px solid var(--border-gold); }
+
+      .about-section { grid-template-columns: 1fr; gap: 3rem; }
+      .why-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .footer-brand { grid-column: span 2; }
+    }
+    @media (max-width: 560px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card { border-right: none !important; border-bottom: 0.5px solid var(--border-gold) !important; }
+      .service-card:last-child { border-bottom: none !important; }
+      .why-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-brand { grid-column: span 1; }
+      h1 { font-size: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav id="main-nav">
+  <a href="#" class="logo" aria-label="Rokym Diligence Enterprise Home">
+    <span class="logo-main">ROKYM DILIGENCE</span>
+    <span class="logo-sub">Enterprise &mdash; Multi-Sector Services</span>
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#why-us">Why Us</a></li>
+    <li><a href="#testimonials">Clients</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get In Touch</a>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero" id="home" aria-label="Hero">
+  <div class="hero-bg"></div>
+  <svg class="hero-grid-lines" viewBox="0 0 1200 800" preserveAspectRatio="none" aria-hidden="true">
+    <line x1="0" y1="0" x2="1200" y2="800" stroke="#C9A84C" stroke-width="0.6"/>
+    <line x1="300" y1="0" x2="1200" y2="600" stroke="#C9A84C" stroke-width="0.4"/>
+    <line x1="900" y1="0" x2="0" y2="800" stroke="#C9A84C" stroke-width="0.4"/>
+    <rect x="950" y="80" width="120" height="120" fill="none" stroke="#C9A84C" stroke-width="0.6"/>
+    <rect x="975" y="105" width="70" height="70" fill="none" stroke="#C9A84C" stroke-width="0.4"/>
+  </svg>
+  <div class="hero-content">
+    <p class="eyebrow">Trusted &bull; Diligent &bull; Multi-Sector</p>
+    <h1>Building Trust Across<br><em>Every Industry</em><br>We Serve</h1>
+    <p class="hero-desc">
+      Rokym Diligence Enterprise delivers excellence across general services and multi-sector solutions — with an unwavering commitment to integrity, precision, and lasting partnerships across Kenya and East Africa.
+    </p>
+    <div class="hero-actions">
+      <a href="#services" class="btn-primary">Explore Our Services</a>
+      <a href="#about" class="btn-outline">Our Story &rarr;</a>
+    </div>
+    <div class="hero-stats" aria-label="Key statistics">
+      <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Years of Excellence</div></div>
+      <div class="stat"><div class="stat-num">200+</div><div class="stat-label">Projects Delivered</div></div>
+      <div class="stat"><div class="stat-num">15+</div><div class="stat-label">Sectors Served</div></div>
+      <div class="stat"><div class="stat-num">98%</div><div class="stat-label">Client Satisfaction</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-bar"></div>
+
+<!-- ── SERVICES ── -->
+<section class="services-section" id="services" aria-labelledby="services-title">
+  <div class="services-header">
+    <div>
+      <p class="section-eyebrow">What We Do</p>
+      <h2 class="section-title" id="services-title">A Full Spectrum of<br><em>Professional Services</em></h2>
+    </div>
+    <a href="#contact" class="btn-outline">Request a Service &rarr;</a>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <i class="ti ti-building-skyscraper service-icon" aria-hidden="true"></i>
+      <div class="service-name">Business Consulting</div>
+      <p class="service-desc">Strategic advisory and operational consulting to help organizations grow, restructure, and thrive in dynamic markets. We deliver clarity, direction, and measurable impact.</p>
+    </div>
+    <div class="service-card">
+      <i class="ti ti-truck-delivery service-icon" aria-hidden="true"></i>
+      <div class="service-name">Supply &amp; Logistics</div>
+      <p class="service-desc">End-to-end supply chain management, procurement, and distribution solutions tailored to your business. Reliable, on-time, cost-effective delivery across Kenya.</p>
+    </div>
+    <div class="service-card">
+      <i class="ti ti-tool service-icon" aria-hidden="true"></i>
+      <div class="service-name">Facility Management</div>
+      <p class="service-desc">Comprehensive maintenance, cleaning, security, and infrastructure support for commercial and institutional facilities — keeping your environment safe and operational.</p>
+    </div>
+    <div class="service-card">
+      <i class="ti ti-users service-icon" aria-hidden="true"></i>
+      <div class="service-name">Manpower Solutions</div>
+      <p class="service-desc">Skilled workforce recruitment, placement, and HR outsourcing services across diverse industries and skill sets. We connect the right talent with the right opportunity.</p>
+    </div>
+    <div class="service-card">
+      <i class="ti ti-chart-line service-icon" aria-hidden="true"></i>
+      <div class="service-name">Project Management</div>
+      <p class="service-desc">Disciplined project planning, execution, and delivery ensuring on-time, on-budget outcomes for every engagement — from kick-off to handover.</p>
+    </div>
+    <div class="service-card">
+      <i class="ti ti-shield-check service-icon" aria-hidden="true"></i>
+      <div class="service-name">Compliance &amp; Risk</div>
+      <p class="service-desc">Regulatory compliance advisory, risk assessments, and governance frameworks to protect your operations and build stakeholder confidence.</p>
+    </div>
+  </div>
+</section>
+
+<div class="gold-bar"></div>
+
+<!-- ── ABOUT ── -->
+<section class="about-section" id="about" aria-labelledby="about-title">
+  <div class="about-text">
+    <p class="section-eyebrow">Who We Are</p>
+    <h2 class="section-title" id="about-title">Diligence Is Not<br>Just Our Name —<br><em>It's Our Standard</em></h2>
+    <p>Rokym Diligence Enterprise was founded on the conviction that exceptional service requires more than skill — it demands integrity, accountability, and genuine care for every client we work with. Across all sectors we operate in, we bring the same rigorous attention to detail and commitment to results.</p>
+    <div class="value-list">
+      <div class="value-item">
+        <div class="value-dot"></div>
+        <div class="value-text">
+          <strong>Our Mission</strong>
+          <span>To provide diligent, reliable, and transformative services that empower our clients to excel in their core business.</span>
+        </div>
+      </div>
+      <div class="value-item">
+        <div class="value-dot"></div>
+        <div class="value-text">
+          <strong>Our Vision</strong>
+          <span>To be the most trusted multi-sector enterprise partner across East Africa and beyond.</span>
+        </div>
+      </div>
+      <div class="value-item">
+        <div class="value-dot"></div>
+        <div class="value-text">
+          <strong>Our Values</strong>
+          <span>Integrity, Excellence, Accountability, and Diligence — in everything we do.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="about-panel">
+      <div class="about-panel-title">Performance at a Glance</div>
+      <p>We hold ourselves to the highest standard — and our numbers reflect it.</p>
+      <div class="metrics-list">
+        <div class="metric-row">
+          <span class="metric-label">Client Retention Rate</span>
+          <span class="metric-val">96%</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">On-time Project Delivery</span>
+          <span class="metric-val">99%</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">Active Sector Portfolios</span>
+          <span class="metric-val">15+</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">Years of Operation</span>
+          <span class="metric-val">10+</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">Projects Successfully Completed</span>
+          <span class="metric-val">200+</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY US ── -->
+<section class="why-section" id="why-us" aria-labelledby="why-title">
+  <p class="section-eyebrow">Our Advantage</p>
+  <h2 class="section-title" id="why-title">What Sets Us <em>Apart</em></h2>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-num">01</div>
+      <div class="why-title">Deep Sector Knowledge</div>
+      <p class="why-desc">Our team brings hands-on expertise across industries, enabling us to tailor solutions rather than offer one-size-fits-all services.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-num">02</div>
+      <div class="why-title">Transparent Processes</div>
+      <p class="why-desc">Every project comes with clear milestones, open reporting, and consistent communication — so you always know exactly where things stand.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-num">03</div>
+      <div class="why-title">Agile &amp; Responsive</div>
+      <p class="why-desc">We adapt quickly to change. Whether the market shifts or your needs evolve, our teams pivot to keep your operations uninterrupted.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-num">04</div>
+      <div class="why-title">End-to-End Accountability</div>
+      <p class="why-desc">From inception to completion, we own the outcome. We are fully responsible for delivering exactly what we promise — on time, every time.</p>
+    </div>
+  </div>
+</section>
+
+<div class="gold-bar"></div>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="testimonials-section" id="testimonials" aria-labelledby="testimonials-title">
+  <p class="section-eyebrow">Client Voices</p>
+  <h2 class="section-title" id="testimonials-title">What Our <em>Clients Say</em></h2>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <p class="testimonial-text">A very elegant enterprise to work with. The professionalism and attention to detail from the Rokym Diligence team is truly outstanding.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">AV</div>
+        <div>
+          <div class="author-name">Andreas Vegas</div>
+          <div class="author-role">Client, Rokym Diligence Enterprise</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <p class="testimonial-text">It's amazing having my project completed seamlessly and efficiently. Rokym Diligence delivered beyond my expectations every step of the way.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">SR</div>
+        <div>
+          <div class="author-name">Sarah Ratandi</div>
+          <div class="author-role">Client, Rokym Diligence Enterprise</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <p class="testimonial-text">Delivered quality service — so reliable for all times. I can count on Rokym Diligence whenever I need work done right and on schedule.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">MM</div>
+        <div>
+          <div class="author-name">Martin Maina</div>
+          <div class="author-role">Client, Rokym Diligence Enterprise</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="contact-section" id="contact" aria-labelledby="contact-title">
+  <div class="contact-inner">
+    <div>
+      <p class="section-eyebrow">Get In Touch</p>
+      <h2 class="section-title" id="contact-title">Ready to Work<br>With <em>Rokym?</em></h2>
+      <p style="margin-top:1.2rem; font-size:0.88rem; line-height:1.9; color:var(--text-muted); font-weight:300; max-width:340px;">Tell us about your project or challenge. Our team will respond within 24 hours.</p>
+      <div class="contact-info-list">
+        <div class="contact-item">
+          <i class="ti ti-map-pin contact-icon" aria-hidden="true"></i>
+          <div>
+            <div class="contact-detail-label">Address</div>
+            <div class="contact-detail-val">Nyeri Town, Nyeri County<br>Kenya</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="ti ti-phone contact-icon" aria-hidden="true"></i>
+          <div>
+            <div class="contact-detail-label">Phone</div>
+            <div class="contact-detail-val">0723 378 462 &nbsp;/&nbsp; 0745 842 430</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="ti ti-mail contact-icon" aria-hidden="true"></i>
+          <div>
+            <div class="contact-detail-label">Email</div>
+            <div class="contact-detail-val">ent.diligence.rn@gmail.com</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="ti ti-clock contact-icon" aria-hidden="true"></i>
+          <div>
+            <div class="contact-detail-label">Business Hours</div>
+            <div class="contact-detail-val">Monday – Friday: 8:00 AM – 5:00 PM<br>Saturday: 9:00 AM – 1:00 PM</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <form class="contact-form" id="contact-form" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="f-name">Full Name *</label>
+            <input class="form-input" type="text" id="f-name" name="name" placeholder="John Kamau" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="f-company">Company / Organization</label>
+            <input class="form-input" type="text" id="f-company" name="company" placeholder="Your Organization" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="f-email">Email Address *</label>
+            <input class="form-input" type="email" id="f-email" name="email" placeholder="you@company.com" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="f-phone">Phone Number</label>
+            <input class="form-input" type="tel" id="f-phone" name="phone" placeholder="+254 7XX XXX XXX" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="f-service">Service of Interest *</label>
+          <select class="form-select" id="f-service" name="service" required>
+            <option value="" disabled selected>Select a service...</option>
+            <option>Business Consulting</option>
+            <option>Supply &amp; Logistics</option>
+            <option>Facility Management</option>
+            <option>Manpower Solutions</option>
+            <option>Project Management</option>
+            <option>Compliance &amp; Risk</option>
+            <option>General Enquiry</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="f-message">Your Message *</label>
+          <textarea class="form-textarea" id="f-message" name="message" placeholder="Tell us about your needs, project scope, or any questions you have..." required></textarea>
+        </div>
+        <button type="submit" class="form-submit">
+          Send Enquiry <i class="ti ti-arrow-right" aria-hidden="true"></i>
+        </button>
+        <p class="form-success" id="form-success" role="alert">
+          ✓ Thank you! Your message has been received. We will get back to you within 24 hours.
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="logo-main">ROKYM DILIGENCE ENTERPRISE</span>
+      <span class="logo-sub">Multi-Sector Professional Services &mdash; Nyeri, Kenya</span>
+      <p>Trusted partners in business consulting, logistics, facility management, manpower, project delivery, and compliance across East Africa.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Business Consulting</a></li>
+        <li><a href="#services">Supply &amp; Logistics</a></li>
+        <li><a href="#services">Facility Management</a></li>
+        <li><a href="#services">Manpower Solutions</a></li>
+        <li><a href="#services">Project Management</a></li>
+        <li><a href="#services">Compliance &amp; Risk</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#why-us">Why Choose Us</a></li>
+        <li><a href="#testimonials">Client Stories</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+254723378462">0723 378 462</a></li>
+        <li><a href="tel:+254745842430">0745 842 430</a></li>
+        <li><a href="mailto:ent.diligence.rn@gmail.com">ent.diligence.rn@gmail.com</a></li>
+        <li><a href="#contact">Nyeri Town, Kenya</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2025 Rokym Diligence Enterprise. All rights reserved.</span>
+    <div class="footer-socials" aria-label="Social media links">
+      <a href="#" aria-label="LinkedIn"><i class="ti ti-brand-linkedin" aria-hidden="true"></i></a>
+      <a href="#" aria-label="Facebook"><i class="ti ti-brand-facebook" aria-hidden="true"></i></a>
+      <a href="#" aria-label="Twitter / X"><i class="ti ti-brand-x" aria-hidden="true"></i></a>
+      <a href="#" aria-label="WhatsApp"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* Nav scroll effect */
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  /* Mobile hamburger */
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  hamburger.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', open);
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  /* Smooth scroll for all anchor links */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const offset = nav.offsetHeight + 16;
+        window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
+      }
+    });
+  });
+
+  /* Contact form submission */
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('.form-submit');
+    const success = document.getElementById('form-success');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    setTimeout(() => {
+      success.style.display = 'block';
+      this.reset();
+      btn.innerHTML = 'Send Enquiry <i class="ti ti-arrow-right" aria-hidden="true"></i>';
+      btn.disabled = false;
+    }, 1200);
+  });
+</script>
+</body>
+</html>
